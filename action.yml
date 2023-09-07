@@ -1,5 +1,5 @@
 ---
-name: multi-file-commit
+name: docker-image-tag-exists
 description: Check if a given container image tag exists in a registry
 inputs:
   image:
