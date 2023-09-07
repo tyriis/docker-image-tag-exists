@@ -2,15 +2,6 @@
 name: multi-file-commit
 description: Check if a given container image tag exists in a registry
 inputs:
-  registry:
-    description: >
-      The container registry url
-    default: docker.io
-  username:
-    description: The container registry username
-  password:
-    description: >
-      The container registry password
   image:
     description: >
       The container image name
