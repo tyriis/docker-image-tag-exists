@@ -26,7 +26,9 @@ This action query a docker container registry to check if a given tag exists.
 - [User Story](#user-story)
 - [The Idea](#the-idea)
 - [What's new](#whats-new)
+- [Limitations](#limitations)
 - [Usage](#usage)
+  - [Outputs](#outputs)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -43,7 +45,16 @@ If the manifest exists the image + tag exists otherwise the request will fail an
 
 ## What's new
 
-- First implementation is currently tested, use at own risk
+First implementation is currently tested, use at own risk
+
+- [x] tested docker.io Registry
+- [x] tested ghcr.io Registry
+- [x] tested Google Artifact Registry
+- [x] tested Amazon Elastic Container Registry
+
+## Limitations
+
+The return message of the registry is not standarized, please open a PR or create an issue if you encounter trouble with your registry.
 
 ## Usage
 
@@ -58,6 +69,12 @@ If the manifest exists the image + tag exists otherwise the request will fail an
     # The container image tag
     tag: ''
 ```
+
+### Outputs
+
+| name | type   | description            |
+| ---- | ------ | ---------------------- |
+| tag  | string | `found` or `not found` |
 
 <!-- end usage -->
 
