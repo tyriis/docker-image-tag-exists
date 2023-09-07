@@ -29,16 +29,15 @@ repos:
     rev: v1.3.1
     hooks:
       - id: remove-crlf
-        exclude: (dist/index.mjs)
+        exclude: (dist/.*)
       - id: remove-tabs
-        exclude: (dist/index.mjs|dist/595.index.mjs)
+        exclude: (dist/.*)
 
   - repo: https://github.com/sirosen/texthooks
     rev: 0.4.0
-    exclude: (dist/**)
     hooks:
       - id: fix-smartquotes
-        exclude: (dist/index.mjs)
+        exclude: (dist/.*)
       - id: fix-ligatures
       - id: forbid-bidi-controls
 
@@ -54,7 +53,7 @@ repos:
       - id: check-added-large-files
         args:
           - --maxkb=100
-        exclude: (dist/index.mjs|package-lock.json)
+        exclude: (dist/.*|package-lock.json)
       - id: check-case-conflict
       - id: check-executables-have-shebangs
       - id: check-json
@@ -64,15 +63,15 @@ repos:
         args:
           - --allow-missing-credentials
       - id: detect-private-key
-        exclude: (dist/index.mjs|src/commit.mjs)
+        exclude: (dist/.*|src/commit.mjs)
       - id: end-of-file-fixer
       - id: fix-byte-order-marker
       - id: mixed-line-ending
-        exclude: (dist/index.mjs)
+        exclude: (dist/.*)
         args:
           - --fix=auto
       - id: trailing-whitespace
-        exclude: (dist/index.mjs)
+        exclude: (dist/.*)
         args:
           - --markdown-linebreak-ext=md
 
