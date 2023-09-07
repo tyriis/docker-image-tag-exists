@@ -1,6 +1,6 @@
 {
   "name": "docker-image-tag-exists",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This action query a docker container registry to check if a given tag exists",
   "main": "src/index.mjs",
   "scripts": {
