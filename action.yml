@@ -1,0 +1,27 @@
+---
+name: multi-file-commit
+description: Check if a given container image tag exists in a registry
+inputs:
+  registry:
+    description: >
+      The container registry url
+    default: docker.io
+  username:
+    description: The container registry username
+  password:
+    description: >
+      The container registry password
+  image:
+    description: >
+      The container image name
+    required: true
+  tag:
+    description: >
+      The container image tag
+    required: true
+outputs:
+  tag:
+    description: will return `found` if image tag is found, otherwise `not found`
+runs:
+  using: node20
+  main: dist/index.mjs
