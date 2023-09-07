@@ -51,6 +51,7 @@ First implementation is currently tested, use at own risk
 - [x] tested ghcr.io Registry
 - [x] tested Google Artifact Registry
 - [x] tested Amazon Elastic Container Registry
+- [x] tested Harbor Registry
 
 ## Limitations
 
@@ -61,7 +62,7 @@ The return message of the registry is not standarized, please open a PR or creat
 <!-- start usage -->
 
 ```yaml
-- uses: tyriis/docker-image-tag-exists@v1.0.0
+- uses: tyriis/docker-image-tag-exists@v1.1.0
   with:
     # The container image name
     image: ''
