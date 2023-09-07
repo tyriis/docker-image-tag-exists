@@ -50,7 +50,7 @@ If the manifest exists the image + tag exists otherwise the request will fail an
 <!-- start usage -->
 
 ```yaml
-- uses: tyriis/docker-image-tag-exists@v0.1.0
+- uses: tyriis/docker-image-tag-exists@v0.1.2
   with:
     # The container image name
     image: ''
