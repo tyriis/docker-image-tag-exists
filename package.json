@@ -1,7 +1,7 @@
 {
-  "name": "multi-file-commit",
-  "version": "0.3.11",
-  "description": "",
+  "name": "docker-image-tag-exists",
+  "version": "0.1.0",
+  "description": "This action query a docker container registry to check if a given tag exists",
   "main": "src/index.mjs",
   "scripts": {
     "build": "rm -rf ./dist && ncc build --license licenses.txt",
