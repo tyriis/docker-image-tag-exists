@@ -1,7 +1,10 @@
 import 'zx/globals'
 
 /* global $ echo */
+
 $.verbose = false
+
+const debug = process.env.NODE_LOG_LEVEL === 'debug'
 
 const registryMessagesMap = {
   docker: 'no such manifest',
@@ -16,12 +19,23 @@ const registryMessages = Array.from(new Set(Object.entries(registryMessagesMap).
 
 export const findTag = async (image, tag) => {
   try {
-    await $`docker manifest inspect ${image}:${tag}`
+    if (debug) {
+      echo`${JSON.stringify({ image, tag }, null, 2)}`
+    }
+    const result = await $`docker manifest inspect ${image}:${tag}`
+    if (debug) {
+      echo`${JSON.stringify({ result })}`
+    }
     echo`container image tag found`
     return true
   } catch (error) {
+    if (debug) {
+      echo`${JSON.stringify({ error })}`
+    }
     for (const item of registryMessages) {
-      echo`${item}`
+      if (debug) {
+        echo`${JSON.stringify({ item })}`
+      }
       if (error.message.indexOf(item) >= 0) {
         echo`container image tag not found`
         return false
