@@ -6,7 +6,7 @@ inputs:
     description: >
       The container image registry
     default: docker.io
-  respository:
+  repository:
     description: >
       The container image repository
     required: true
