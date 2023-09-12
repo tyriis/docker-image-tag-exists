@@ -2,14 +2,22 @@
 name: docker-image-tag-exists
 description: Check if a given container image tag exists in a registry
 inputs:
-  image:
+  registry:
     description: >
-      The container image name
+      The container image registry
+    default: docker.io
+  respository:
+    description: >
+      The container image repository
     required: true
   tag:
     description: >
       The container image tag
     required: true
+  token:
+    description: >
+      The token to access the registry, if not provided you need either to use the docker login action before or the image must be public available
+    required: false
 outputs:
   tag:
     description: will return `found` if image tag is found, otherwise `not found`

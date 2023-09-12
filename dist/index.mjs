@@ -32477,7 +32477,6 @@ Object.assign(global, build_namespaceObject);
 
 ;// CONCATENATED MODULE: ./src/find-tag.mjs
 
-
 /* global $ echo */
 
 $.verbose = false
@@ -32495,22 +32494,44 @@ const registryMessagesMap = {
 // reduce the maping to an array with unique value strings
 const registryMessages = Array.from(new Set(Object.entries(registryMessagesMap).map(([, value]) => value)))
 
-const findTag = async (image, tag) => {
+const findTag = async (registry, repository, tag, token) => {
   try {
     if (debug) {
-      echo`${JSON.stringify({ image, tag }, null, 2)}`
+      echo`${JSON.stringify({ registry, repository, tag, token: !!token }, null, 2)}`
     }
-    const result = await $`docker manifest inspect ${image}:${tag}`
+    // const result = await $`docker manifest inspect ${image}:${tag}`
+    let result = null
+    if (token) {
+      const header = `Authorization: Bearer ${token}`
+      await $`curl --fail --location -H ${header} https://${registry}/v2/${repository}/manifests/${tag} > manifest.json`
+      result = await $`cat manifest.json`
+    } else {
+      result = await $`docker manifest inspect ${registry}/${repository}:${tag}`
+    }
     if (debug) {
-      echo`${JSON.stringify({ result })}`
+      echo`${result}`
     }
     echo`container image tag found`
     return true
   } catch (error) {
     if (debug) {
-      echo`${JSON.stringify({ error })}`
+      echo`${error}`
+    }
+    if (token && error.exitCode === 22) {
+      // eslint-disable-next-line quotes
+      const curlError = error.stderr.split('\n')
+      const curlErrorMessage = curlError[curlError.length - 2]
+      if (curlErrorMessage.indexOf('404') >= 0) {
+        echo`container image tag not found`
+        return false
+      }
+      throw new Error(curlErrorMessage)
     }
     for (const item of registryMessages) {
+      if (token) {
+        // dont use response message parsing when using curl
+        break
+      }
       if (debug) {
         echo`${JSON.stringify({ item })}`
       }
@@ -32536,9 +32557,11 @@ __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependen
 
 
 try {
-  const image = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('image')
+  const registry = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('registry')
+  const repository = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('repository')
   const tag = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('tag')
-  const tagFound = await (0,_find_tag_mjs__WEBPACK_IMPORTED_MODULE_1__/* .findTag */ .M)(image, tag)
+  const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('token')
+  const tagFound = await (0,_find_tag_mjs__WEBPACK_IMPORTED_MODULE_1__/* .findTag */ .M)(registry, repository, tag, token)
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('tag', tagFound ? 'found' : 'not found')
 } catch (error) {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message)

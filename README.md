@@ -53,6 +53,8 @@ First implementation is currently tested, use at own risk
 - [x] tested Amazon Elastic Container Registry
 - [x] tested Harbor Registry
 
+- Issues with hosted arc runners in Google Cloud, implemented a curl request as fallback, only tested with google cloud so far
+
 ## Limitations
 
 The return message of the registry is not standarized, please open a PR or create an issue if you encounter trouble with your registry.
@@ -62,13 +64,16 @@ The return message of the registry is not standarized, please open a PR or creat
 <!-- start usage -->
 
 ```yaml
-- uses: tyriis/docker-image-tag-exists@v1.1.0
+- uses: tyriis/docker-image-tag-exists@v2.0.0
   with:
+    # The container image registry
+    registry: docker.io
+
     # The container image name
-    image: ''
+    repository: nginx
 
     # The container image tag
-    tag: ''
+    tag: '1'
 ```
 
 ### Outputs
