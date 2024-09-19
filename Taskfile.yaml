@@ -7,3 +7,4 @@ vars:
 
 includes:
   pre-commit: .taskfiles/pre-commit/Taskfile.yaml
+  node: .taskfiles/node/Taskfile.yaml

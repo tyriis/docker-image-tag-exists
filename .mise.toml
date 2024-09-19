@@ -1,0 +1,7 @@
+[tools]
+# https://gitleaks.io/
+gitleaks = "8.18.4"
+# https://pre-commit.com/
+pre-commit = "3.8.0"
+# https://taskfile.dev/
+task = "3.38.0"
