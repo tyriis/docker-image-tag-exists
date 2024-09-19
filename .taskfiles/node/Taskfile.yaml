@@ -1,0 +1,8 @@
+---
+version: '3'
+
+tasks:
+  ncu:
+    desc: node check updates
+    cmds:
+      - pnpx --yes npm-check-updates -i
