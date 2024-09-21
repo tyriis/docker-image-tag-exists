@@ -5,3 +5,5 @@ gitleaks = "8.18.4"
 pre-commit = "3.8.0"
 # https://taskfile.dev/
 task = "3.38.0"
+# https://pnpm.io/
+pnpm = "9.11.0"
