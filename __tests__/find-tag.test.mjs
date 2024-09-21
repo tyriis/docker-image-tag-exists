@@ -2,7 +2,6 @@ import { findTag } from "../src/find-tag.mjs"
 import { describe, test } from "@jest/globals"
 
 describe("findTag function", () => {
-
   test("should find docker.io/library/nginx:latest", async () => {
     await expect(findTag("docker.io", "library/nginx", "latest")).resolves.toBe(true)
   })
@@ -28,11 +27,12 @@ describe("findTag function", () => {
   // })
 
   test("should find public.ecr.aws/eks-anywhere/tinkerbell/tink/nginx:v0.10.1-eks-a-77", async () => {
-    await expect(findTag("public.ecr.aws", "eks-anywhere/tinkerbell/tink/nginx", "v0.10.1-eks-a-77")).resolves.toBe(true)
+    await expect(findTag("public.ecr.aws", "eks-anywhere/tinkerbell/tink/nginx", "v0.10.1-eks-a-77")).resolves.toBe(
+      true
+    )
   })
 
   test("should not find public.ecr.aws/eks-anywhere/tinkerbell/tink/nginx:fail", async () => {
     await expect(findTag("public.ecr.aws", "eks-anywhere/tinkerbell/tink/nginx", "fail")).resolves.toBe(false)
   })
-
 })

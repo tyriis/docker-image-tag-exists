@@ -73,7 +73,7 @@ The return message of the registry is not standarized, please open a PR or creat
     repository: nginx
 
     # The container image tag
-    tag: '1'
+    tag: "1"
 ```
 
 ### Outputs

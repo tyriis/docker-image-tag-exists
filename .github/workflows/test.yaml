@@ -15,7 +15,7 @@ on:
         required: false
       tag:
         description: The container image tag
-        default: '1'
+        default: "1"
         required: false
 
 jobs:
