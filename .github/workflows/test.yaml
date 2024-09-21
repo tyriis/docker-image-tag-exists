@@ -1,0 +1,31 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Test Action
+
+on:
+  workflow_dispatch:
+    inputs:
+      registry:
+        description: The container image registry
+        default: docker.io
+        required: false
+      repository:
+        description: The container image name
+        default: nginx
+        required: false
+      tag:
+        description: The container image tag
+        default: '1'
+        required: false
+
+jobs:
+  test:
+    name: test action
+    runs-on: ubuntu-latest
+    steps:
+      - name: image-tag-exists
+        uses: tyriis/docker-image-tag-exists@v2.0.3-0
+        with:
+          registry: ${{ github.event.inputs.registry }}
+          repository: ${{ github.event.inputs.repository }}
+          tag: ${{ github.event.inputs.tag }}
