@@ -1,3 +1,4 @@
+import {$, echo} from "zx"
 /* $ echo */
 
 $.verbose = false
