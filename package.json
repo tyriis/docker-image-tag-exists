@@ -1,6 +1,6 @@
 {
   "name": "docker-image-tag-exists",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "This action query a docker container registry to check if a given tag exists",
   "main": "src/index.mjs",
   "scripts": {
@@ -10,7 +10,7 @@
     "lint:fix": "eslint \"src/**/*.mjs\" --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nils Müller<me@tyriis.dev>",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.1",
