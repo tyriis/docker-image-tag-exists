@@ -64,7 +64,7 @@ The return message of the registry is not standarized, please open a PR or creat
 <!-- start usage -->
 
 ```yaml
-- uses: tyriis/docker-image-tag-exists@v2.0.2
+- uses: tyriis/docker-image-tag-exists@v2.0.3
   with:
     # The container image registry
     registry: docker.io
