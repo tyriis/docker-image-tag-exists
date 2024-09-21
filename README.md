@@ -53,7 +53,7 @@ First implementation is currently tested, use at own risk
 - [x] tested Amazon Elastic Container Registry
 - [x] tested Harbor Registry
 
-- Issues with hosted arc runners in Google Cloud, implemented a curl request as fallback, only tested with google cloud so far
+- Issues with hosted arc runners in Google Cloud, implemented a http request as fallback, only tested with google cloud so far
 
 ## Limitations
 
