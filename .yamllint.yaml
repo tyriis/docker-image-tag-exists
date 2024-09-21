@@ -2,6 +2,7 @@
 # see https://yamllint.readthedocs.io/en/stable/index.html for more options
 ignore: |
   gotk-components.yaml
+  pnpm-lock.yaml
 extends: default
 rules:
   truthy:
