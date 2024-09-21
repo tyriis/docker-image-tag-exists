@@ -55,6 +55,8 @@ First implementation is currently tested, use at own risk
 
 - Issues with hosted arc runners in Google Cloud, implemented a http request as fallback, only tested with google cloud so far
 
+- replaced zx library with vanilla js and axios
+
 ## Limitations
 
 The return message of the registry is not standarized, please open a PR or create an issue if you encounter trouble with your registry.
