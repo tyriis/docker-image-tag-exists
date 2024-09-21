@@ -1,5 +1,4 @@
-import 'zx/globals'
-/* global $ echo */
+/* $ echo */
 
 $.verbose = false
 

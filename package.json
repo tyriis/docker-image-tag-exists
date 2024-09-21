@@ -1,10 +1,10 @@
 {
   "name": "docker-image-tag-exists",
-  "version": "2.0.2",
+  "version": "2.0.3-0",
   "description": "This action query a docker container registry to check if a given tag exists",
   "main": "src/index.mjs",
   "scripts": {
-    "build": "rm -rf ./dist && ncc build --license licenses.txt",
+    "build": "rm -rf ./dist && ncc build --license LICENSE",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"src/**/*.mjs\"",
     "lint:fix": "eslint \"src/**/*.mjs\" --fix"
@@ -18,9 +18,8 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.1",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-n": "^17.10.3",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^7.1.0",
