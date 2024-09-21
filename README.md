@@ -11,8 +11,8 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![pre-commit][pre-commit-shield]][pre-commit-url]
 [![taskfile][taskfile-shield]][taskfile-url]
+[![pre-commit][pre-commit-shield]][pre-commit-url]
 
 # Docker Image Tag Exists
 
@@ -90,7 +90,7 @@ The scripts and documentation in this project are released under the [MIT Licens
 
 <!-- Badges -->
 
-[pre-commit-shield]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=for-the-badge
-[pre-commit-url]: https://github.com/pre-commit/pre-commit
+[taskfile-shield]: https://img.shields.io/badge/Taskfile-Enabled-brightgreen?style=for-the-badge&logo=task
 [taskfile-url]: https://taskfile.dev/
-[taskfile-shield]: https://img.shields.io/badge/Taskfile-Enabled-brightgreen?logoColor=white&style=for-the-badge
+[pre-commit-shield]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge&logo=pre-commit
+[pre-commit-url]: https://github.com/pre-commit/pre-commit
