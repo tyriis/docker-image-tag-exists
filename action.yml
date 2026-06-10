@@ -19,6 +19,9 @@ inputs:
     description: >
       The token to access the registry, if not provided you need either to use the docker login action before or the image must be public available
     required: false
+branding:
+  icon: tag
+  color: purple
 outputs:
   tag:
     description: will return `found` if image tag is found, otherwise `not found`
