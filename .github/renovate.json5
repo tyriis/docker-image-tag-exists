@@ -1,0 +1,22 @@
+{
+  enabled: true,
+  extends: [
+    "github>techtales-io/renovate-config:base.json5"
+  ],
+  ignorePaths: [],
+  rebaseWhen: "conflicted",
+  ansible: {
+    enabled: false,
+  },
+  jenkins: {
+    enabled: false,
+  },
+  lockFileMaintenance: {
+    enabled: true,
+    extends: ["schedule:weekly"],
+    automerge: true,
+  },
+  vulnerabilityAlerts: {
+    enabled: true,
+  }
+}
