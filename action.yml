@@ -23,5 +23,5 @@ outputs:
   tag:
     description: will return `found` if image tag is found, otherwise `not found`
 runs:
-  using: node20
+  using: node24
   main: dist/index.mjs
