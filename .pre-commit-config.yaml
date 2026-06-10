@@ -1,15 +1,19 @@
 ---
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-config.json
 fail_fast: false
-
-exclude: ^(pnpm-lock.yaml|package-lock.json)
-
+# exclude: "^(docs/superpowers/.*|\\.agents/.*)$"
 default_stages:
-  - commit
-  - push
+  - pre-commit
+  - pre-push
 
 repos:
+  # checks pre-commit config for errors
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+
   - repo: https://github.com/thlorenz/doctoc
-    rev: v2.2.0
+    rev: v2.4.1
     hooks:
       - id: doctoc
         args:
@@ -19,8 +23,38 @@ repos:
           - --github
           - --notitle
 
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: destroyed-symlinks
+      - id: detect-aws-credentials
+        args:
+          - --allow-missing-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: no-commit-to-branch
+      - id: trailing-whitespace
+      # format-specific
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+        args:
+          - --allow-multiple-documents
+          - --unsafe
+
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         args:
@@ -28,74 +62,42 @@ repos:
           - .yamllint.yaml
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: remove-crlf
-        exclude: (dist/.*)
       - id: remove-tabs
-        exclude: (dist/.*)
 
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.7
+    rev: 0.7.1
     hooks:
       - id: fix-smartquotes
-        exclude: (dist/.*)
       - id: fix-ligatures
       - id: forbid-bidi-controls
 
-  - repo: https://github.com/k8s-at-home/sops-pre-commit
-    rev: v2.1.1
-    hooks:
-      - id: forbid-secrets
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
-    hooks:
-      - id: check-merge-conflict
-      - id: check-added-large-files
-        args:
-          - --maxkb=100
-        exclude: (dist/.*|package-lock.json)
-      - id: check-case-conflict
-      - id: check-executables-have-shebangs
-      - id: check-json
-      - id: check-symlinks
-      - id: check-xml
-      - id: detect-aws-credentials
-        args:
-          - --allow-missing-credentials
-      - id: detect-private-key
-        exclude: (dist/.*|src/commit.mjs)
-      - id: end-of-file-fixer
-      - id: fix-byte-order-marker
-      - id: mixed-line-ending
-        exclude: (dist/.*)
-        args:
-          - --fix=auto
-      - id: trailing-whitespace
-        exclude: (dist/.*)
-        args:
-          - --markdown-linebreak-ext=md
-
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+    rev: v0.48.0
     hooks:
       - id: markdownlint-fix
         args:
           - --config
           - .markdownlint.yaml
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.8.4
     hooks:
       - id: prettier
         args:
           - --ignore-path
           - .prettierignore
           - --config
-          - .prettierrc.js
+          - .prettierrc.yaml
 
-  - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.19.2
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
     hooks:
       - id: gitleaks
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
