@@ -18,8 +18,6 @@
 
 This action query a docker container registry to check if a given tag exists.
 
-<details>
-  <summary style="font-size:1.2em;">Table of Contents</summary>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -66,7 +64,7 @@ The return message of the registry is not standarized, please open a PR or creat
 <!-- start usage -->
 
 ```yaml
-- uses: tyriis/docker-image-tag-exists@v2026.6.0
+- uses: tyriis/docker-image-tag-exists@v2026.6.1
   with:
     # The container image registry
     registry: docker.io
