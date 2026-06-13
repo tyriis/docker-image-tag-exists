@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: image-tag-exists
-        uses: tyriis/docker-image-tag-exists@edbb13fd8d75138e7097314d3610bf92b186c665 # v2.1.0
+        uses: tyriis/docker-image-tag-exists@2cb38c7c5868e9f50e870230718100ad912aac67 # v3.0.0
         with:
           registry: ${{ github.event.inputs.registry }}
           repository: ${{ github.event.inputs.repository }}
