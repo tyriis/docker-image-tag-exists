@@ -4,6 +4,6 @@ gitleaks = { version = "8.30.1", backend = "aqua:gitleaks/gitleaks" }
 # https://pre-commit.com/
 pre-commit = { version = "4.6.0", backend = "aqua:pre-commit/pre-commit" }
 # https://taskfile.dev/
-task = { version = "3.51.1", backend = "aqua:go-task/task" }
+task = { version = "3.52.0", backend = "aqua:go-task/task" }
 # https://pnpm.io/
-pnpm = { version = "11.8.0", backend = "aqua:pnpm/pnpm" }
+pnpm = { version = "11.11.0", backend = "aqua:pnpm/pnpm" }
