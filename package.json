@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@vercel/ncc": "0.44.0",
+    "@vercel/ncc": "0.44.1",
     "eslint": "10.4.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-n": "18.1.0",
+    "eslint-plugin-n": "18.2.2",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-promise": "7.3.0",
     "jest": "30.4.2",
-    "prettier": "3.8.4"
+    "prettier": "3.9.5"
   }
 }
