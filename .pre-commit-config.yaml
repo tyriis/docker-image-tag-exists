@@ -34,6 +34,7 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: check-symlinks
       - id: check-vcs-permalinks
+        exclude: ^dist/
       - id: destroyed-symlinks
       - id: detect-aws-credentials
         args:
@@ -44,6 +45,7 @@ repos:
       - id: mixed-line-ending
       - id: no-commit-to-branch
       - id: trailing-whitespace
+        exclude: ^dist/
       # format-specific
       - id: check-json
       - id: check-toml
@@ -66,12 +68,15 @@ repos:
     hooks:
       - id: remove-crlf
       - id: remove-tabs
+        exclude: ^dist/
 
   - repo: https://github.com/sirosen/texthooks
     rev: 0.7.1
     hooks:
       - id: fix-smartquotes
+        exclude: ^dist/
       - id: fix-ligatures
+        exclude: ^dist/
       - id: forbid-bidi-controls
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
