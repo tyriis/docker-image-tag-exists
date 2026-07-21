@@ -2,7 +2,7 @@
 # https://gitleaks.io/
 gitleaks = { version = "8.30.1", backend = "aqua:gitleaks/gitleaks" }
 # https://pre-commit.com/
-pre-commit = { version = "4.6.0", backend = "aqua:pre-commit/pre-commit" }
+pre-commit = { version = "4.6.1", backend = "aqua:pre-commit/pre-commit" }
 # https://taskfile.dev/
 task = { version = "3.52.0", backend = "aqua:go-task/task" }
 # https://pnpm.io/
