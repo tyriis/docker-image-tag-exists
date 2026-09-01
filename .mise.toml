@@ -6,4 +6,4 @@ pre-commit = { version = "4.6.2", backend = "aqua:pre-commit/pre-commit" }
 # https://taskfile.dev/
 task = { version = "3.53.1", backend = "aqua:go-task/task" }
 # https://pnpm.io/
-pnpm = { version = "11.24.0", backend = "aqua:pnpm/pnpm" }
+pnpm = { version = "11.25.0", backend = "aqua:pnpm/pnpm" }
